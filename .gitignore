@@ -1,29 +1,8 @@
-# ---------------[ Unity generated ]------------------ #
-Temp/
-Obj/
-UnityGenerated/
-Library/
-Assets/
- 
-# ----[ Visual Studio / MonoDevelop generated ]------- #
- 
-ExportedObj/
-*.svd
-*.userprefs
+.DS_Store
+Library
+Temp
 *.csproj
 *.pidb
-*.suo
-*.sln
-*.user
 *.unityproj
-*.booproj
- 
-# -------------[ OS generated ]------------------------ #
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
+*.sln
+*.userprefs
