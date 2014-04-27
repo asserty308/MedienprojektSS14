@@ -4,7 +4,9 @@ using System.Collections;
 public class Head : MonoBehaviour {
 
 	bool grounded;
+	
 	public LayerMask mask;
+	
 	public Vector2 dir;
 	
 	// Use this for initialization
