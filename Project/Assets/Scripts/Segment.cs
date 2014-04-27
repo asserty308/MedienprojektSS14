@@ -7,7 +7,6 @@ public class Segment : MonoBehaviour {
 	bool grounded;
 	public LayerMask mask;
 	
-	// Use this for initialization
 	void Start () {
 
 	}
