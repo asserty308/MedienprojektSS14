@@ -1,0 +1,97 @@
+IMD+ DMS PROJEKT ANTRAG
+Teamprojekt GameDevelopement - GameDesign
+Dozenten Prof. Dr. Linda Breitlauch - Projekt Abgabe bis 31.08.2014
+
+Projekt Beteiligte: 
+Jonas Tsigos
+Yannick Assert
+David Wichter
+
+
+—————————
+Titel: 
+
+Beschreibung:
+
+Ziel ist die Konzeption, Planung und Entwicklung eines 2D Jump and run Side scroller.
+
+
+
+IST Zustand:
+
+MUST HAVE:
+
+NICE TO HAVE: 
+
+
+
+Unity
+
+
+DEVELOPMENT/DESIGN PLAN
+
+1. Milestone 
+
+Spielfigur Sprites
+
+
+
+2. Milestone
+
+
+3. Milestone
+
+
+
+
+
+
+
+
+
+Levelaktionen: 
+Durch Erde, Raum, Space, Nature, 
+
+Gerne: Knobel-Elemente, Geschicklichkeit, Action
+
+Spielbeschreibung:
+
+Platform: Android, iOs
+
+
+Stimmung/Emotion:
+
+Levelelemente: Plattformen (teils beweglich), Gegner, Abgründe, Items,
+
+
+Leveldesign: Real World Environement
+
+
+Zielgruppe: ab 12
+
+Soundtheme/Effects:
+
+Masteraufgabe:	
+
+
+Grafikstil: Real Collagen style, Spacy Vektor, 2-Bit dublex, Artefakte
+
+
+Charakter: Tausendfüßer
+Charakter-Charakter: 
+
+Level: Erstmal eins
+
+
+Items/Achievements:
+
+
+Menu: Optionen, Start,
+
+
+Intro: Animation, Splashscreen
+
+
+
+
+

@@ -1,0 +1,88 @@
+GameDevelopement
+Dozenten Prof. Dr. Linda Breitlauch
+
+- Projekt Abgabe bis 31.08.2014
+- 
+
+Projekt Leiter = Vision Keeper
+Cacoo
+
+
+Projektantrag mit Beschreibung und Zeitplan.
+2-3 Seiten
+
+
+IST / MUST HAVE / NICE TO HAVE
+
+—————————
+Konzept Brainstorming
+
+Arbeitstitel: Windigger  Wurm
+Titel: 
+Idee: Grafiken sammeln als achievements
+
+Seitenverhältnis: 16:9
+
+Auflösung: HD-Auflösung von 1920 × 1080 Pixeln
+
+Konkurenz: Raupe Nimmersatt, Worms, Earthworm Jim, 
+
+Levelaktionen: 
+Durch Erde, Raum, Space, Nature, 
+
+Gerne: Knobel-Elemente, Geschicklichkeit, Action
+
+Spielbeschreibung:
+
+Platform: Android, iOs
+
+
+Stimmung/Emotion:
+
+Levelelemente: Plattformen (teils beweglich), Gegner, Abgründe, Items,
+
+
+Leveldesign: Real World Environement
+
+
+Zielgruppe: ab 12
+
+Soundtheme/Effects:
+
+Masteraufgabe:	
+
+
+Grafikstil: Real Collagen style, Spacy Vektor, 2-Bit dublex, Artefakte
+
+
+Charakter: Tausendfüßer
+Charakter-Charakter: 
+
+Level: Erstmal eins
+
+
+Items/Achievements:
+
+
+Menu: Optionen, Start,
+
+
+Intro: Animation, Splashscreen
+
+
+
+
+DEVELOPMENT/DESIGN PLAN
+
+1. Milestone 
+
+Spielfigur Sprites
+
+
+
+2. Milestone
+
+
+3. Milestone
+
+
