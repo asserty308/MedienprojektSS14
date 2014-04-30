@@ -8,38 +8,56 @@ Yannick Assert
 David Wichter
 
 
+Game Design
 —————————
-Titel: 
-
-Beschreibung:
-
-Ziel ist die Konzeption, Planung und Entwicklung eines 2D Jump and run Side scroller.
+Alpha Titel: Tausendfüssler
+Zielgruppe: ab 12
+Stimmung/Emotion: spaß, niedlich, vertraulich
 
 
+Spielbeschreibung:
+Ziel ist die Konzeption, Planung und Entwicklung eines PC (Android, iOs) 2D-Jump&Run side scroller Spiels.
+Der Spieler steuert eine action Spielfigur aus mehreren Segmenten und bewegt sich von links nach rechts auf Plattformen durch ein Level. Abgründe, bewegliche Hindernisse und Gegner erschweren den Weg an das Levelende.
+Das Real World Environment Leveldesign ist konsequent im natur Aquarell Collagen Style gemalt.
 
-IST Zustand:
+
 
 MUST HAVE:
+- Game-engine
+- First Playable
+- Design & Story
+- Menu, Optionen, Start
+- Soundtheme Effects
+
 
 NICE TO HAVE: 
+- Items, Achievements
+- Intro, Animation, Splashscreen
+- mehr Levels
+- Level Events
+- iOs, Android Versionen
+- mehr Optionen 
 
-
-
-Unity
 
 
 DEVELOPMENT/DESIGN PLAN
-
 1. Milestone 
-
-Spielfigur Sprites
-
-
+- Setup Team Work Space / Organisation
+- Ideen sammeln, finden, auswerten, entscheiden
+- Setup Game Engine
+- Create Storyboard
 
 2. Milestone
-
+- Spielfigur Sprites
 
 3. Milestone
+- Level Sprites
+
+
+4. Milestone
+5. Milestone
+6. Milestone
+7. Milestone
 
 
 
@@ -47,49 +65,6 @@ Spielfigur Sprites
 
 
 
-
-
-Levelaktionen: 
-Durch Erde, Raum, Space, Nature, 
-
-Gerne: Knobel-Elemente, Geschicklichkeit, Action
-
-Spielbeschreibung:
-
-Platform: Android, iOs
-
-
-Stimmung/Emotion:
-
-Levelelemente: Plattformen (teils beweglich), Gegner, Abgründe, Items,
-
-
-Leveldesign: Real World Environement
-
-
-Zielgruppe: ab 12
-
-Soundtheme/Effects:
-
-Masteraufgabe:	
-
-
-Grafikstil: Real Collagen style, Spacy Vektor, 2-Bit dublex, Artefakte
-
-
-Charakter: Tausendfüßer
-Charakter-Charakter: 
-
-Level: Erstmal eins
-
-
-Items/Achievements:
-
-
-Menu: Optionen, Start,
-
-
-Intro: Animation, Splashscreen
 
 
 
