@@ -15,6 +15,7 @@ public class GameBorder : MonoBehaviour {
 
     void OnTriggerExit2D (Collider2D collider)
     {
+        //destroy objects falling out of the game
         Destroy(collider.gameObject);
     }
 }
