@@ -4,7 +4,7 @@ using System.Collections;
 public class Segment : MonoBehaviour {
 
 	public Transform predecessor;
-	bool grounded;
+	bool grounded, contracted;
 	public LayerMask mask;
 	
 	void Start () {
@@ -20,20 +20,47 @@ public class Segment : MonoBehaviour {
 
             grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
 
-            if (dis > 0.85f)
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
+                contracted = !contracted;
             }
-            else
+
+            if (contracted)
             {
-                if (grounded)
+                if (dis > 0.1f) //.85f
                 {
-                    rigidbody2D.velocity = Vector2.zero;
+                    rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
                 }
                 else
                 {
-                    rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
+                    if (grounded)
+                    {
+                        rigidbody2D.velocity = Vector2.zero;
+                    }
+                    else
+                    {
+                        rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
 
+                    }
+                }
+            }
+            else
+            {
+                if (dis > 0.85f)
+                {
+                    rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
+                }
+                else
+                {
+                    if (grounded)
+                    {
+                        rigidbody2D.velocity = Vector2.zero;
+                    }
+                    else
+                    {
+                        rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
+
+                    }
                 }
             }
         }
