@@ -1,18 +1,19 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Segment : MonoBehaviour {
+public class Segment : MonoBehaviour
+{
+    public Transform predecessor;
+    private bool grounded, contracted;
+    public LayerMask mask;
 
-	public Transform predecessor;
-	bool grounded, contracted;
-	public LayerMask mask;
-	
-	void Start () {
+    private void Start()
+    {
+    }
 
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    private void FixedUpdate()
+    {
         if (predecessor != null)
         {
             Vector2 gap = predecessor.position - transform.position;
@@ -27,7 +28,7 @@ public class Segment : MonoBehaviour {
 
             if (contracted)
             {
-                if (dis > 0.1f) //.85f
+                if (dis > 0.25f)
                 {
                     rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
                 }
@@ -40,7 +41,6 @@ public class Segment : MonoBehaviour {
                     else
                     {
                         rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
-
                     }
                 }
             }
@@ -59,13 +59,11 @@ public class Segment : MonoBehaviour {
                     else
                     {
                         rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
-
                     }
                 }
             }
         }
-		
-		transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
-		
-	}
+
+        transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
+    }
 }
