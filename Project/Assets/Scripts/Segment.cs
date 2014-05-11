@@ -4,11 +4,21 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     public Transform predecessor;
+    public float contractionLimit;
+    private float scalingFactor;
+    private float segmentRadius;
+    private	float distanceLimit;
+    private float step;
     private bool grounded, contracted;
     public LayerMask mask;
 
     private void Start()
     {
+    	scalingFactor = 20f;
+		segmentRadius = 0.45f;
+		distanceLimit = 0.6f;
+		step = 0.0625f;
+		
     }
 
     // Update is called once per frame
@@ -19,49 +29,34 @@ public class Segment : MonoBehaviour
             Vector2 gap = predecessor.position - transform.position;
             float dis = Vector2.Distance(transform.position, predecessor.position);
 
-            grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
+            grounded = Physics2D.OverlapCircle(transform.position, segmentRadius, mask);
 
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 contracted = !contracted;
             }
-
-            if (contracted)
-            {
-                if (dis > 0.25f)
-                {
-                    rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
-                }
-                else
-                {
-                    if (grounded)
+            
+			if(contracted){
+				rigidbody2D.AddForce(gap * 1000f);
+			}else{
+				contractionLimit = gap.sqrMagnitude > distanceLimit ? gap.sqrMagnitude : Mathf.Clamp(contractionLimit - step, 0f, gap.sqrMagnitude);
+			}
+			
+			
+			rigidbody2D.velocity = gap * scalingFactor * contractionLimit;
+                
+                
+            if(Mathf.Abs(0 - contractionLimit) < Mathf.Epsilon){
+                if (grounded)
                     {
-                        rigidbody2D.velocity = Vector2.zero;
+                    	   rigidbody2D.velocity = Vector2.zero;
                     }
                     else
                     {
-                        rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
+                    	   rigidbody2D.velocity = (Physics2D.gravity * scalingFactor * Time.deltaTime);
                     }
-                }
             }
-            else
-            {
-                if (dis > 0.85f)
-                {
-                    rigidbody2D.velocity = gap * 10f * gap.sqrMagnitude;
-                }
-                else
-                {
-                    if (grounded)
-                    {
-                        rigidbody2D.velocity = Vector2.zero;
-                    }
-                    else
-                    {
-                        rigidbody2D.velocity = (Physics2D.gravity * 20f * Time.deltaTime);
-                    }
-                }
-            }
+      
         }
 
         transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
