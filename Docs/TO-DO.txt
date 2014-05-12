@@ -1,0 +1,62 @@
+IMD+ DMS PROJEKT ANTRAG
+Teamprojekt GameDevelopement - GameDesign
+Dozenten Prof. Dr. Linda Breitlauch - Projekt Abgabe bis 31.08.2014
+
+Projekt Beteiligte: 
+Jonas Tsigos
+Yannick Assert
+David Wichter
+
+
+In diesem Dokument Aufgaben formulieren, zuordnen oder abarbeiten.
+Ist ein Task erledigt, einfach zu DONE STUFF kopieren.
+
+
+TO-DO:
+—————————
+
+1. Priorität
+
+DESIGN:
+- Spites Level/Charakter 
+- Soundtheme, Sound-Effects
+- Menu, Optionen, Start
+- Design & Story
+- Create Storyboard
+
+
+CODE: 
+- Game-engine
+- First Playable
+- Paralaxen
+
+
+2. Priorität
+
+DESIGN:
+- Items, Achievements
+- Intro, Animation, Splashscreen
+
+
+CODE: 
+- mehr Levels
+- Level Events (Besondere Ereignisse)
+- iOs, Android Versionen
+- mehr Optionen 
+
+
+
+DONE STUFF:
+- Ideen sammeln, finden, auswerten
+- Setup Team Work Space
+- Setup Game Engine
+
+
+
+
+
+
+
+
+
+
