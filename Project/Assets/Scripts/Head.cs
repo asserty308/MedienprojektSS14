@@ -14,8 +14,6 @@ public class Head : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	
-//		rigidbody2D.velocity = new Vector2(Input.GetAxis("Horizontal") * 10.0f, rigidbody2D.velocity.y);
 		
 		rigidbody2D.AddForce(dir * Input.GetAxis("Horizontal") * 20.0f);
 		
