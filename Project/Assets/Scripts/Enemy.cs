@@ -34,9 +34,34 @@ public class Enemy : MonoBehaviour
         {
             moveLeft = !moveLeft;
         }
-        else if (other.tag == "Head" || other.tag == "Segment")
+        else if (other.tag == "Head")
         {
-            Destroy(this.gameObject);
+            Head head = other.GetComponent<Head>();
+            Segment segment = head.successor;
+
+            if (segment == null)
+            {
+                Destroy(head.gameObject); 
+                //show game over screen
+            }
+
+            while (segment.successor != null)
+            {
+                segment = segment.successor;
+            }
+
+            Destroy(segment.gameObject);
+        }
+        else if (other.tag == "Segment")
+        {
+            Segment segment = other.GetComponent<Segment>();
+            
+            while (segment.successor != null)
+            {
+                segment = segment.successor;
+            }
+
+            Destroy(segment.gameObject);
         }
     }
 }

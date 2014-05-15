@@ -4,6 +4,7 @@ using UnityEngine;
 public class Segment : MonoBehaviour
 {
     public Transform predecessor;
+    public Segment successor;
     public float contractionLimit;
     private float scalingFactor;
     private float segmentRadius;
@@ -42,9 +43,7 @@ public class Segment : MonoBehaviour
 				contractionLimit = gap.sqrMagnitude > distanceLimit ? gap.sqrMagnitude : Mathf.Clamp(contractionLimit - step, 0f, gap.sqrMagnitude);
 			}
 			
-			
 			rigidbody2D.velocity = gap * scalingFactor * contractionLimit;
-                
                 
             if(Mathf.Abs(0 - contractionLimit) < Mathf.Epsilon){
                 if (grounded)

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Head : MonoBehaviour {
 
+    public Segment successor;
 	bool grounded;
 	public LayerMask mask;
 	public Vector2 dir;
