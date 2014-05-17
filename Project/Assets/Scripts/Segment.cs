@@ -32,17 +32,21 @@ public class Segment : MonoBehaviour
 
             grounded = Physics2D.OverlapCircle(transform.position, segmentRadius, mask);
 
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.LeftControl))
             {
-                contracted = !contracted;
+                contracted = true;
+            }else{
+            	contracted = false;
             }
             
 			if(contracted){
-				rigidbody2D.AddForce(gap * 1000f);
+				if(dis > segmentRadius/2f){
+					rigidbody2D.AddForce(gap * 1000f);
+				}
 			}else{
 				contractionLimit = gap.sqrMagnitude > distanceLimit ? gap.sqrMagnitude : Mathf.Clamp(contractionLimit - step, 0f, gap.sqrMagnitude);
 			}
-			
+	
 			rigidbody2D.velocity = gap * scalingFactor * contractionLimit;
                 
             if(Mathf.Abs(0 - contractionLimit) < Mathf.Epsilon){

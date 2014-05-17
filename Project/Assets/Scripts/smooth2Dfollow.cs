@@ -10,6 +10,7 @@ public class smooth2Dfollow : MonoBehaviour {
 	public float targetPosOnScreenX;
 	public float targetPosOnScreenY;
 	private float lastDeltaY;
+	private float upperFollowBorder;
 	
 
 	// Use this for initialization
@@ -17,6 +18,7 @@ public class smooth2Dfollow : MonoBehaviour {
 		velocity = Vector3.zero;
 		targetPosOnScreenX = 0.3f;
 		targetPosOnScreenY = 0.2f;
+		upperFollowBorder = 5f;
 	
 	}
 	
@@ -29,9 +31,10 @@ public class smooth2Dfollow : MonoBehaviour {
 																					  targetPoint.z));
 			
 			//The camera should follow in Y-direction only if the caterpillar is approaching the south screenborder 
-			if(delta.y > lastDeltaY){
+			if(delta.y > lastDeltaY && delta.y < upperFollowBorder){
 				delta.y = 0f;
 			}
+			
 			
 			Vector3 destination = transform.position + delta + standoff;
 			
