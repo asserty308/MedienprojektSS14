@@ -37,12 +37,12 @@ public class Enemy : MonoBehaviour
         else if (other.tag == "Head")
         {
             Head head = other.GetComponent<Head>();
-            Segment segment = head.successor;
+            Segment segment = head.successor != null ? head.successor : null;
 
             if (segment == null)
             {
-                Destroy(head.gameObject); 
-                //show game over screen
+                Destroy(head.gameObject);
+                return;
             }
 
             while (segment.successor != null)
