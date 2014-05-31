@@ -15,7 +15,18 @@ public class GameBorder : MonoBehaviour {
 
     void OnTriggerExit2D (Collider2D collider)
     {
-        //destroy objects falling out of the game
-        Destroy(collider.gameObject);
+        if(collider.tag == "Head"){
+			CheckpointManager checkpointManager = collider.GetComponent<CheckpointManager>();
+			GameObject currentCheckpointObject = checkpointManager.currentCheckpoint;
+			Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
+			
+			Destroy(collider.gameObject);
+			currentCheckpoint.respawn();
+        }else{
+			//destroy objects falling out of the game
+			Destroy(collider.gameObject);	
+        }
+        
+        
     }
 }

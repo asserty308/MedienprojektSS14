@@ -15,6 +15,7 @@ public class Segment : MonoBehaviour
 
     private void Start()
     {
+    	contracted = false;
     	scalingFactor = 20f;
 		segmentRadius = 0.45f;
 		distanceLimit = 0.6f;
@@ -32,7 +33,7 @@ public class Segment : MonoBehaviour
 
             grounded = Physics2D.OverlapCircle(transform.position, segmentRadius, mask);
 
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 contracted = true;
             }else{

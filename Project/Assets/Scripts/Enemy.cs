@@ -41,7 +41,12 @@ public class Enemy : MonoBehaviour
 
             if (segment == null)
             {
-                Destroy(head.gameObject);
+				CheckpointManager checkpointManager = other.GetComponent<CheckpointManager>();
+				GameObject currentCheckpointObject = checkpointManager.currentCheckpoint;
+				Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
+				
+				Destroy(head.gameObject);
+                currentCheckpoint.respawn();
                 return;
             }
 

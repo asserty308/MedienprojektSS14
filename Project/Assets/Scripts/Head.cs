@@ -4,9 +4,10 @@ using System.Collections;
 public class Head : MonoBehaviour {
 
     public Segment successor;
-	bool grounded;
+	public bool grounded;
 	public LayerMask mask;
 	public Vector2 dir;
+	public GameObject newSeg;
 	
 	// Use this for initialization
 	void Start () {
@@ -27,14 +28,34 @@ public class Head : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
 	}
 	
-	void OnCollisionEnter2D(Collision2D col){
-		if(col.gameObject.layer == 8){
-			//dir = col.gameObject.transform.right;	
-		}
-
-	}
+	public void growNewSegment(){
+		GameObject newSegment = (GameObject)Instantiate(newSeg);
+		Segment nextSeg = successor;
+		float distance = -0.6f;
+		int i = 1;
+		
+		Segment newSegScript = newSegment.GetComponent<Segment>();
+		newSegScript.successor = null;
+		
+		if(nextSeg){
+			while(nextSeg.successor){
+				nextSeg = nextSeg.successor;
+				i++;
+			}
+		
+			newSegScript.predecessor = nextSeg.gameObject.transform;
+			nextSeg.successor = newSegment.GetComponent<Segment>();
+			newSegment.layer = LayerMask.NameToLayer("seg" + (++i));
+			
+		}else{
 	
-	void OnCollisionStay2D(Collision2D col){
+			newSegScript.predecessor = this.transform;
+			this.successor = newSegment.GetComponent<Segment>();
+			newSegment.layer = LayerMask.NameToLayer("seg" + i);
+		}
+		
+		
+		newSegment.transform.position = this.transform.position + new Vector3(i * distance, 0f, 0f);
 		
 	}
 }
