@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: a42f0832b7fe84e4d94b1f639b8229b0
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Sprite-Items-L-1_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 870
+        width: 191
+        height: 210
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite-Items-L-1_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 871
+        width: 144
+        height: 209
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite-Items-L-1_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 874
+        width: 136
+        height: 206
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite-Items-L-1_3
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 863
+        width: 219
+        height: 212
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprite-Items-L-1_4
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 693
+        width: 142
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprite-Items-L-1_5
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 683
+        width: 143
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprite-Items-L-1_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 432
+        width: 237
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprite-Items-L-1_7
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 480
+        width: 135
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprite-Items-L-1_8
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 456
+        width: 134
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprite-Items-L-1_9
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 278
+        width: 303
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 
