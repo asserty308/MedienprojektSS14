@@ -24,7 +24,7 @@ public class scrolltriggerscript : MonoBehaviour {
 		}else if (cam.WorldToViewportPoint(transform.position).x < leftTriggerBorder){
 			scroller.scrollspeed = -0.1f;
 		}else{
-			scroller.scrollspeed = 0f;
+			scroller.scrollspeed = 0.01f;
 		}
 
 	}

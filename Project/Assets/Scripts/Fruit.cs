@@ -20,6 +20,8 @@ public class Fruit : MonoBehaviour
         if (other.tag == "Head")
         {
             Destroy(this.gameObject);
+//			newHead.growNewSegment();
+
         }
     }
 }
