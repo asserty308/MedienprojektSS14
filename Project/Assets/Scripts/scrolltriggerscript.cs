@@ -19,13 +19,20 @@ public class scrolltriggerscript : MonoBehaviour {
 		float rightTriggerBorder = playerFollower.targetPosOnScreenX + triggerBorderOffset;
 		float leftTriggerBorder = playerFollower.targetPosOnScreenX - triggerBorderOffset;
 		
-		if(cam.WorldToViewportPoint(transform.position).x > rightTriggerBorder){
-			scroller.scrollspeed = 0.1f;
-		}else if (cam.WorldToViewportPoint(transform.position).x < leftTriggerBorder){
-			scroller.scrollspeed = -0.1f;
-		}else{
-			scroller.scrollspeed = 0.01f;
-		}
-
+        if (scroller != null)
+        {
+            if (cam.WorldToViewportPoint(transform.position).x > rightTriggerBorder)
+            {
+                scroller.scrollspeed = 0.1f;
+            }
+            else if (cam.WorldToViewportPoint(transform.position).x < leftTriggerBorder)
+            {
+                scroller.scrollspeed = -0.1f;
+            }
+            else
+            {
+                scroller.scrollspeed = 0.01f;
+            }
+        }
 	}
 }

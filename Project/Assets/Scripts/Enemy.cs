@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour 
 {
-    public bool moveLeft;
-    public float speed;
+    public bool moveLeft = false;
+    public float speed = 3f;
 
 	// Use this for initialization
 	void Start () 
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "EnemyBorder")
         {
             moveLeft = !moveLeft;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); //flip game object
         }
         else if (other.tag == "Head")
         {
