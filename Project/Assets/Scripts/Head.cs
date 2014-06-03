@@ -14,14 +14,18 @@ public class Head : MonoBehaviour {
 		dir = transform.right;
 	}
 	
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        {
+            rigidbody2D.AddForce(transform.up * 500f);
+        }
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		
 		rigidbody2D.AddForce(dir * Input.GetAxis("Horizontal") * 20.0f);
-		
-		if(Input.GetKeyDown(KeyCode.Space) && grounded){
-			rigidbody2D.AddForce(transform.up * 500f);
-		}
 		
 		grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
 		
