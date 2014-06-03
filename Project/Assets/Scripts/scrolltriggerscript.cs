@@ -31,7 +31,7 @@ public class scrolltriggerscript : MonoBehaviour {
             }
             else
             {
-                scroller.scrollspeed = 0.01f;
+                scroller.scrollspeed = 0.0f;
             }
         }
 	}
