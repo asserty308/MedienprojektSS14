@@ -6,6 +6,7 @@ public class MovingPlatform : MonoBehaviour
     public bool moveLeft, leftPlatform;
     public float speed, midPosX;
     private float startX;
+	public Vector3 movement;
 
 	// Use this for initialization
 	void Start () 
@@ -16,8 +17,6 @@ public class MovingPlatform : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-        Vector3 movement;
-
         if (moveLeft)
         {
             movement = new Vector3(-Time.deltaTime*speed, 0.0f, 0.0f);
@@ -51,5 +50,6 @@ public class MovingPlatform : MonoBehaviour
         {
             moveLeft = !moveLeft;
         }
-    }
+	}
+    
 }

@@ -6,11 +6,10 @@ public class smooth2Dfollow : MonoBehaviour {
 	public Transform target;
 	public float dampfactor;
 	private Vector3 velocity;
-	public Vector3 standoff;
 	public float targetPosOnScreenX;
 	public float targetPosOnScreenY;
 	private float lastDeltaY;
-	private float upperFollowBorder;
+	public float upperFollowBorder;
 	
 
 	// Use this for initialization
@@ -36,7 +35,7 @@ public class smooth2Dfollow : MonoBehaviour {
 			}
 			
 			
-			Vector3 destination = transform.position + delta + standoff;
+			Vector3 destination = transform.position + delta + new Vector3(0f, 0f, -10f);
 			
 			transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampfactor);
 		

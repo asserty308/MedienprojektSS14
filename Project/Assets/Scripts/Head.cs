@@ -32,6 +32,13 @@ public class Head : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
 	}
 	
+	void OnCollisionEnter2D(Collision2D coll){
+		if(coll.gameObject.tag == "MovingGroundSegment"){
+			MovingPlatform platform = coll.gameObject.GetComponent<MovingPlatform>();
+			transform.position += platform.movement;
+		}
+	}
+	
 	public void growNewSegment(){
 		GameObject newSegment = (GameObject)Instantiate(newSeg);
 		Segment nextSeg = successor;
