@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Checkpoint : MonoBehaviour {
 
 	public GameObject respawnable;
-	public scrollscript scroller;
 	public LayerMask mask;
+	public List<scrollscript> backgroundLevels;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,7 @@ public class Checkpoint : MonoBehaviour {
 		scrolltriggerscript scrolltrigger = newPlayer.GetComponent<scrolltriggerscript>();
 		scrolltrigger.cam = Camera.main;
 		scrolltrigger.playerFollower = sm2df;
-		scrolltrigger.scroller = scroller;
+		scrolltrigger.backgroundLevels = backgroundLevels;
 		
 		Head newHead = newPlayer.GetComponent<Head>();
 		newHead.successor = null;

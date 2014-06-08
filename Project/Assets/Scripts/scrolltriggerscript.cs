@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class scrolltriggerscript : MonoBehaviour {
 
-	public scrollscript scroller;
+	public List<scrollscript> backgroundLevels;
 	public smooth2Dfollow playerFollower;
 	public Camera cam;
 	
@@ -19,19 +20,23 @@ public class scrolltriggerscript : MonoBehaviour {
 		float rightTriggerBorder = playerFollower.targetPosOnScreenX + triggerBorderOffset;
 		float leftTriggerBorder = playerFollower.targetPosOnScreenX - triggerBorderOffset;
 		
-        if (scroller != null)
+        if (backgroundLevels != null)
         {
             if (cam.WorldToViewportPoint(transform.position).x > rightTriggerBorder)
             {
-                scroller.scrollspeed = 0.1f;
+                backgroundLevels[0].scrollspeed = 0.1f;
+                backgroundLevels[1].scrollspeed = 0.07f;
             }
             else if (cam.WorldToViewportPoint(transform.position).x < leftTriggerBorder)
             {
-                scroller.scrollspeed = -0.1f;
+				backgroundLevels[0].scrollspeed = -0.1f;
+				backgroundLevels[1].scrollspeed = -0.07f;
             }
             else
             {
-                scroller.scrollspeed = 0.0f;
+            	foreach(scrollscript s in backgroundLevels){
+            		s.scrollspeed = 0.0f;
+            	}
             }
         }
 	}
