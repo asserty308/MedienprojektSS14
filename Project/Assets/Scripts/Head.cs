@@ -8,10 +8,13 @@ public class Head : MonoBehaviour {
 	public LayerMask mask;
 	public Vector2 dir;
 	public GameObject newSeg;
+	public bool facingRight;
+	public Vector3 lastPosition;
 	
 	// Use this for initialization
 	void Start () {
 		dir = transform.right;
+		facingRight = true;
 	}
 	
     void Update()
@@ -20,6 +23,14 @@ public class Head : MonoBehaviour {
         {
             rigidbody2D.AddForce(transform.up * 500f);
         }
+        
+        if(transform.position.x > lastPosition.x){
+        	facingRight = true;
+		}else if(transform.position.x < lastPosition.x){
+			facingRight = false;
+		}
+		
+		lastPosition = transform.position;
     }
 
 	// Update is called once per frame
@@ -47,6 +58,7 @@ public class Head : MonoBehaviour {
 		
 		Segment newSegScript = newSegment.GetComponent<Segment>();
 		newSegScript.successor = null;
+		newSegScript.head = this;
 		
 		if(nextSeg){
 			while(nextSeg.successor){
@@ -57,6 +69,7 @@ public class Head : MonoBehaviour {
 			newSegScript.predecessor = nextSeg.gameObject.transform;
 			nextSeg.successor = newSegment.GetComponent<Segment>();
 			newSegment.layer = LayerMask.NameToLayer("seg" + (++i));
+			
 			
 		}else{
 	

@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     public bool moveLeft = false;
     public float speed = 3f;
+    public float knockbackForce;
 
 	// Use this for initialization
 	void Start () 
@@ -57,6 +58,12 @@ public class Enemy : MonoBehaviour
             }
 
             Destroy(segment.gameObject);
+            
+            //Little Knockback on impact
+            Vector3 knockbackDirection = head.facingRight ? -(other.transform.right) : other.transform.right; 
+			other.gameObject.rigidbody2D.velocity = knockbackDirection * knockbackForce + new Vector3(0f, 10f, 0);
+			//
+
         }
         else if (other.tag == "Segment")
         {
@@ -68,6 +75,12 @@ public class Enemy : MonoBehaviour
             }
 
             Destroy(segment.gameObject);
+            
+			//Little Knockback on impact
+			Head head = segment.head;
+			Vector3 knockbackDirection = head.facingRight ? other.transform.right : -other.transform.right; 
+			head.gameObject.rigidbody2D.velocity = knockbackDirection * knockbackForce + new Vector3(0f, 10f, 0);
+			//
         }
     }
 }

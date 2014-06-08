@@ -6,6 +6,7 @@ public class Segment : MonoBehaviour
     public Transform predecessor;
     public Segment successor;
     public float contractionLimit;
+    public Head head;
     private float scalingFactor;
     private float segmentRadius;
     private	float distanceLimit;
@@ -19,8 +20,7 @@ public class Segment : MonoBehaviour
     	scalingFactor = 20f;
 		segmentRadius = 0.45f;
 		distanceLimit = 0.6f;
-		step = 0.0625f;
-		
+		step = 0.0625f;		
     }
 
     // Update is called once per frame
