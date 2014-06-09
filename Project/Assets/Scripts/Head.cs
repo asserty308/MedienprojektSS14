@@ -30,25 +30,19 @@ public class Head : MonoBehaviour {
 			facingRight = false;
 		}
 		
+		grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
+		
 		lastPosition = transform.position;
-    }
+	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		
 		rigidbody2D.AddForce(dir * Input.GetAxis("Horizontal") * 20.0f);
 		
-		grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
-		
 		transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
 	}
 	
-	void OnCollisionEnter2D(Collision2D coll){
-		if(coll.gameObject.tag == "MovingGroundSegment"){
-			MovingPlatform platform = coll.gameObject.GetComponent<MovingPlatform>();
-			transform.position += platform.movement;
-		}
-	}
 	
 	public void growNewSegment(){
 		GameObject newSegment = (GameObject)Instantiate(newSeg);
