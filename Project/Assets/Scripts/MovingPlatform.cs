@@ -63,11 +63,11 @@ public class MovingPlatform : MonoBehaviour
             moveLeft = !moveLeft;
         }
         
-        if(other.gameObject.tag == "Head" || other.gameObject.tag == "Segment"){
-        	if(Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)){
-				other.rigidbody.velocity = this.rigidbody2D.velocity;
-        	}
-        }
+		if(other.gameObject.tag == "Head" || other.gameObject.tag == "Segment"){
+			if(Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)){
+					other.rigidbody.velocity = this.rigidbody2D.velocity;
+			}
+		}
 	}
     
 }

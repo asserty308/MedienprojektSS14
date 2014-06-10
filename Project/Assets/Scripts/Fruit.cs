@@ -19,13 +19,12 @@ public class Fruit : MonoBehaviour
     {
         if (other.tag == "Head")
         {
-            Destroy(this.gameObject);
 			Head head = other.gameObject.GetComponent<Head>();
 			
 			if(head.getNumberOfSegments() < 10){
 				head.growNewSegment();
 			}
-
+			Destroy(this.gameObject);
         }
     }
 }

@@ -7,12 +7,13 @@ public class Segment : MonoBehaviour
     public Segment successor;
     public float contractionLimit;
     public Head head;
+	public LayerMask mask;
+	
     private float scalingFactor;
     private float segmentRadius;
     private	float distanceLimit;
     private float step;
     private bool grounded, contracted;
-    public LayerMask mask;
 
     private void Start()
     {

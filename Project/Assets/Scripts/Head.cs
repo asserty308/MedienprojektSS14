@@ -33,6 +33,7 @@ public class Head : MonoBehaviour {
 		grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
 		
 		lastPosition = transform.position;
+		
 	}
 
 	// Update is called once per frame
@@ -84,5 +85,23 @@ public class Head : MonoBehaviour {
 			i++;
 		}
 		return i;	
+	}
+	
+	public void updateParent(){
+		Segment seg = successor;
+		
+		if(!seg){
+			return;
+		}
+		
+		while(seg){
+			if(this.transform.parent){
+				seg.transform.parent = this.transform.parent;
+			}else{
+				seg.transform.parent = null;
+			}
+			seg = seg.successor;
+		}
+
 	}
 }
