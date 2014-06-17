@@ -45,16 +45,34 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
+    - name: Sprites-L-1_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 838
+        width: 120
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Sprites-L-1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 517
+        width: 280
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
     - name: Sprites-L-1_2
       rect:
         serializedVersion: 2
-        x: 469
-        y: 708
-        width: 243
-        height: 67
+        x: 450
+        y: 700
+        width: 276
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: Sprites-L-1_4
+    - name: Sprites-L-1_3
       rect:
         serializedVersion: 2
         x: 1079
@@ -63,13 +81,13 @@ TextureImporter:
         height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
-    - name: Sprites-L-1_5
+    - name: Sprites-L-1_4
       rect:
         serializedVersion: 2
-        x: 338
-        y: 662
-        width: 6
-        height: 74
+        x: 87
+        y: 97
+        width: 521
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
   spritePackingTag: 
