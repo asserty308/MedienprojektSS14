@@ -53,7 +53,7 @@ TextureImporter:
         width: 153
         height: 303
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: Sprites-Gegner_1
       rect:
         serializedVersion: 2
@@ -62,6 +62,24 @@ TextureImporter:
         width: 423
         height: 222
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+    - name: Sprites-Gegner_2
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 295
+        width: 418
+        height: 220
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Sprites-Gegner_3
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 300
+        width: 408
+        height: 222
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
