@@ -66,5 +66,12 @@ public class Segment : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
     }
-   
+
+    public void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "InvisibleBorder")
+        {
+            Physics2D.IgnoreCollision(coll.collider, this.collider2D);
+        }
+    }
 }

@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "EnemyBorder")
+        if (other.tag == "EnemyBorder" || other.tag == "InvisibleBorder")
         {
             moveLeft = !moveLeft;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); //flip game object
