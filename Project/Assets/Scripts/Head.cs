@@ -74,7 +74,7 @@ public class Head : MonoBehaviour {
 		}
 		
 		
-		newSegment.transform.position = this.transform.position + new Vector3(i * distance, 0f, 0f);
+		newSegment.transform.position = this.transform.position;
 	}
 	
 	public int getNumberOfSegments(){
