@@ -40,6 +40,8 @@ public class FallingLeafPlatform : MonoBehaviour {
 		if(transform.position.y < bezierPointsCoordiates[bezierPointsCoordiates.Length-1].y){
 			this.transform.DetachChildren();
 			transform.position = bezierPointsCoordiates[0];
+			this.transform.eulerAngles = Vector3.zero;
+			this.rigidbody2D.angularVelocity = 0f;
 			t = 0.0625f;
 		}
 		
