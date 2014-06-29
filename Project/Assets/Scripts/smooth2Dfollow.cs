@@ -15,8 +15,6 @@ public class smooth2Dfollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		velocity = Vector3.zero;
-		targetPosOnScreenX = 0.3f;
-		targetPosOnScreenY = 0.2f;
 		upperFollowBorder = 5f;
 	
 	}

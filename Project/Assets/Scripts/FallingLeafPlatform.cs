@@ -39,6 +39,7 @@ public class FallingLeafPlatform : MonoBehaviour {
 		
 		if(transform.position.y < bezierPointsCoordiates[bezierPointsCoordiates.Length-1].y){
 			this.transform.DetachChildren();
+			this.tag = "Untagged";
 			transform.position = bezierPointsCoordiates[0];
 			this.transform.eulerAngles = Vector3.zero;
 			this.rigidbody2D.angularVelocity = 0f;
@@ -50,6 +51,7 @@ public class FallingLeafPlatform : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Head"){
+			this.tag = "Head";
 			other.transform.parent = this.transform;
 			Head head = other.transform.GetComponent<Head>();
 			head.updateParent();
@@ -58,6 +60,7 @@ public class FallingLeafPlatform : MonoBehaviour {
 	
 	void OnTriggerExit2D(Collider2D other){
 		if(other.gameObject.tag == "Head"){
+			this.tag = "Untagged";
 			other.transform.parent = null;
 			Head head = other.transform.GetComponent<Head>();
 			head.updateParent();

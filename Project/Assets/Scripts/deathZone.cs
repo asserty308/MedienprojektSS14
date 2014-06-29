@@ -15,16 +15,18 @@ public class deathZone : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D other){
 		if(other.gameObject.tag == "Head" || other.gameObject.tag == "Segment"){
-		if(other.gameObject.tag == "Head"){
-			CheckpointManager checkpointManager = other.gameObject.GetComponent<CheckpointManager>();
-			GameObject currentCheckpointObject = checkpointManager.currentCheckpoint;
-			Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
+			if(other.gameObject.tag == "Head"){
+				CheckpointManager checkpointManager = other.gameObject.GetComponent<CheckpointManager>();
+				if(checkpointManager != null){
+					GameObject currentCheckpointObject = checkpointManager.currentCheckpoint;
+					Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
 			
-			Destroy(other.gameObject);
-			currentCheckpoint.respawn();
-		}else{
-			Destroy(other.gameObject);	
-		}
+					Destroy(other.gameObject);
+					currentCheckpoint.respawn();
+				}
+			}else{
+				Destroy(other.gameObject);	
+			}
 		}
 	}
 }
