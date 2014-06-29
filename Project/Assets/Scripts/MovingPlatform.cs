@@ -30,7 +30,6 @@ public class MovingPlatform : MonoBehaviour
 
 		rigidbody2D.velocity = movement;
 
-
         if (leftPlatform)
         {
             if ((transform.position.x < startX) )
@@ -53,20 +52,36 @@ public class MovingPlatform : MonoBehaviour
         }
         
         //Lock y- and z-axis
-        this.transform.position = new Vector3(transform.position.x, lockedPostition.y, lockedPostition.z);
+        //this.transform.position = new Vector3(transform.position.x, lockedPostition.y, lockedPostition.z);
     }
 
-    void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "MovingGroundSegment")
-        {
-            moveLeft = !moveLeft;
-        }
-        
-		if(other.gameObject.tag == "Head" || other.gameObject.tag == "Segment"){
-			if(Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)){
-					other.rigidbody.velocity = this.rigidbody2D.velocity;
-			}
+//    void OnCollisionStay2D(Collision2D other)
+//    {
+//        if (other.gameObject.tag == "MovingGroundSegment")
+//        {
+//            moveLeft = !moveLeft;
+//        }
+//        
+//		if(other.gameObject.tag == "Head" || other.gameObject.tag == "Segment"){
+//			if(Input.GetAxis("Horizontal") == 0 && !Input.GetKey(KeyCode.Space) && !Input.GetKey(KeyCode.LeftShift)){
+//					other.rigidbody.velocity = this.rigidbody2D.velocity;
+//			}
+//		}
+//	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.gameObject.tag == "Head"){
+			other.transform.parent = this.transform;
+			Head head = other.transform.GetComponent<Head>();
+			head.updateParent();
+		}
+	}
+	
+	void OnTriggerExit2D(Collider2D other){
+		if(other.gameObject.tag == "Head"){
+			other.transform.parent = null;
+			Head head = other.transform.GetComponent<Head>();
+			head.updateParent();
 		}
 	}
     

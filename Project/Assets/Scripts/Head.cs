@@ -108,7 +108,7 @@ public class Head : MonoBehaviour {
     {
         if (coll.gameObject.tag == "InvisibleBorder")
         {
-            Physics2D.IgnoreCollision(coll.collider, this.collider2D);
+           // Physics2D.IgnoreCollision(coll.collider, this.collider2D);
         }
     }
 }

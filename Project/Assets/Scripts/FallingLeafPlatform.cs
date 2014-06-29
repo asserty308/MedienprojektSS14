@@ -24,6 +24,7 @@ public class FallingLeafPlatform : MonoBehaviour {
 		
 		coordinateCopy = new Vector2[bezierPointsCoordiates.Length]; 
 	}
+	
 	// Update is called once per frame
 	void Update () {
 		
@@ -37,6 +38,7 @@ public class FallingLeafPlatform : MonoBehaviour {
 		t += Time.deltaTime * 0.0625f;
 		
 		if(transform.position.y < bezierPointsCoordiates[bezierPointsCoordiates.Length-1].y){
+			this.transform.DetachChildren();
 			transform.position = bezierPointsCoordiates[0];
 			t = 0.0625f;
 		}
@@ -45,17 +47,17 @@ public class FallingLeafPlatform : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "HeadTriggerbox"){
-			other.transform.parent.parent = this.transform;
-			Head head = other.transform.parent.GetComponent<Head>();
+		if(other.gameObject.tag == "Head"){
+			other.transform.parent = this.transform;
+			Head head = other.transform.GetComponent<Head>();
 			head.updateParent();
 		}
 	}
 	
 	void OnTriggerExit2D(Collider2D other){
-		if(other.gameObject.tag == "HeadTriggerbox"){
-			other.transform.parent.parent = null;
-			Head head = other.transform.parent.GetComponent<Head>();
+		if(other.gameObject.tag == "Head"){
+			other.transform.parent = null;
+			Head head = other.transform.GetComponent<Head>();
 			head.updateParent();
 		}
 	}
