@@ -42,28 +42,4 @@ public class FoxLeg : MonoBehaviour
             moveUp = true;
         }
     }
-
-    /*void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.gameObject.tag == "FoxBody")
-        {
-            moveUp = false;
-        }
-        else if (coll.gameObject.tag == "Ground")
-        {
-            moveUp = true;
-        }
-    }*/
-
-    /*void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "FoxBody")
-        {
-            moveUp = false;
-        }
-        else if (coll.gameObject.tag == "Ground")
-        {
-            moveUp = true;
-        }
-    }*/
 }

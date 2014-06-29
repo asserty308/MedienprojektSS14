@@ -15,16 +15,16 @@ public class Stomper : MonoBehaviour {
 	
 	}
 	
-	void OnTriggerEnter2D(Collider2D other){
+	void OnCollisionEnter2D(Collision2D other){
 	
-		if (other.tag == "Head")
+		if (other.gameObject.tag == "Head")
 		{
-			Head head = other.GetComponent<Head>();
+			Head head = other.gameObject.GetComponent<Head>();
 			Segment segment = head.successor != null ? head.successor : null;
 			
 			if (segment == null)
 			{
-				CheckpointManager checkpointManager = other.GetComponent<CheckpointManager>();
+				CheckpointManager checkpointManager = other.gameObject.GetComponent<CheckpointManager>();
 				GameObject currentCheckpointObject = checkpointManager.currentCheckpoint;
 				Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
 				
@@ -46,9 +46,9 @@ public class Stomper : MonoBehaviour {
 			//
 			
 		}
-		else if (other.tag == "Segment")
+		else if (other.gameObject.tag == "Segment")
 		{
-			Segment segment = other.GetComponent<Segment>();
+			Segment segment = other.gameObject.GetComponent<Segment>();
 			
 			while (segment.successor != null)
 			{
