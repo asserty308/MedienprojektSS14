@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Checkpoint : MonoBehaviour {
 
+    public PlayerScore playerScore;
 	public GameObject respawnable;
 	public LayerMask mask;
 	public List<scrollscript> backgroundLevels;
@@ -36,11 +37,11 @@ public class Checkpoint : MonoBehaviour {
 		newHead.mask = mask;
 		newHead.newSeg = Resources.Load<GameObject>("Segment");
 		newHead.grounded = true;
-		
+
 		for(int i = 0; i < 5; i++){
 			newHead.growNewSegment();
 		}
-		
-		
+
+        playerScore.head = newHead;
 	}
 }
