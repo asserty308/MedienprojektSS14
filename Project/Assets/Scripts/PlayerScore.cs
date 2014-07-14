@@ -9,14 +9,17 @@ public class PlayerScore : MonoBehaviour
     public const int applePoints = 50;
     public GUIText scoreText;
     public Head head; //needed to set segmentCount
-
-    private int score, segmentCount, cherriesEaten, plumsEaten;
+	public int score;
+    
+    private int segmentCount, cherriesEaten, plumsEaten;
     private bool appleEaten;
     private Segment successor;
 
 	// Use this for initialization
 	void Start () 
     {
+    	DontDestroyOnLoad(gameObject);
+    	
         segmentCount = 1;
 
         if (head.successor != null)
@@ -69,6 +72,9 @@ public class PlayerScore : MonoBehaviour
 
     void updateGUIScore()
     {
-        scoreText.text = "Score: " + score;
+    	if(scoreText){
+        	scoreText.text = "Score: " + score;
+        }
     }
+    
 }
