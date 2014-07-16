@@ -22,6 +22,7 @@ public class Checkpoint : MonoBehaviour {
 	public void respawn(){
 		GameObject newPlayer = (GameObject)Instantiate(respawnable);
 		newPlayer.transform.position = this.transform.position;
+		newPlayer.layer = LayerMask.NameToLayer("Head");
 		
 		smooth2Dfollow sm2df = Camera.main.GetComponent<smooth2Dfollow>();
 		
