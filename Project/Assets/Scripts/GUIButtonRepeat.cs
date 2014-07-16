@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIButtonRepeat : MonoBehaviour {
-	
+public class GUIButtonRepeat : MonoBehaviour 
+{
+    public string m_text;
 	private Rect frame;
 	
 	// Use this for initialization
@@ -17,7 +18,7 @@ public class GUIButtonRepeat : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		if(GUI.Button(frame, "I can do better!")){
+		if(GUI.Button(frame, m_text)){
 			Application.LoadLevel("Main");
 		}
 	}

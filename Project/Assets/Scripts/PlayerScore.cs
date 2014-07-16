@@ -7,18 +7,20 @@ public class PlayerScore : MonoBehaviour
     public const int cherryPoints = 10;
     public const int plumPoints = 5;
     public const int applePoints = 50;
-    public GUIText scoreText;
     public Head head; //needed to set segmentCount
 	public int score;
     
     private int segmentCount, cherriesEaten, plumsEaten;
     private bool appleEaten;
     private Segment successor;
+    private ScreenGUI m_screenGUI;
 
 	// Use this for initialization
 	void Start () 
     {
     	DontDestroyOnLoad(gameObject);
+
+        m_screenGUI = GetComponent<ScreenGUI>();
     	
         segmentCount = 1;
 
@@ -39,7 +41,7 @@ public class PlayerScore : MonoBehaviour
         plumsEaten = 0;
         appleEaten = false;
 
-        updateGUIScore();
+        m_screenGUI.updateScoreLabel(this.score);
 	}
 	
 	// Update is called once per frame
@@ -61,20 +63,18 @@ public class PlayerScore : MonoBehaviour
 
         score = segmentCount * segmentPoints;
 
-        updateGUIScore();
+        m_screenGUI.updateScoreLabel(this.score);
 	}
 
     void addScore(int value)
     {
         score += value;
-        updateGUIScore();
+        getGUIScore();
     }
 
-    void updateGUIScore()
+    public string getGUIScore()
     {
-    	if(scoreText){
-        	scoreText.text = "Score: " + score;
-        }
+        return "Score: " + score;
     }
     
 }

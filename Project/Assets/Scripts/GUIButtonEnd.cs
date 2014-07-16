@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIButtonEnd : MonoBehaviour {
-
+public class GUIButtonEnd : MonoBehaviour 
+{
+    public string m_text;
 	private Rect frame;
 
 	// Use this for initialization
@@ -16,8 +17,10 @@ public class GUIButtonEnd : MonoBehaviour {
 		frame = new Rect (pos.x, Screen.height - pos.y, 200f, 25f);
 	}
 	
-	void OnGUI(){
-		if(GUI.Button(frame, "Neat! I'm done though...")){
+	void OnGUI()
+    {
+		if(GUI.Button(frame, m_text))
+        {
 			Application.Quit();
 		}
 	}
