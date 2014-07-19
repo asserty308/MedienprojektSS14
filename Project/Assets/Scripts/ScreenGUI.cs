@@ -40,10 +40,17 @@ public class ScreenGUI : MonoBehaviour
     {
         m_scoreLabel = "Score: " + score;
     }
+
+    public void setLabelString(string label)
+    {
+        m_currentLabel = label;
+        m_showLabel = true;
+        Invoke("ToggleLabel", 10f);
+    }
 }
 
 public struct GUILabels
 {
     public static string moveString = "Use the arrow keys to move to the left or right and the spacebar to jump";
-
+    public static string concatenateString = "Use left shift to contract";
 }
