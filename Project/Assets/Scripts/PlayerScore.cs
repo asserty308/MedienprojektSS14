@@ -61,15 +61,27 @@ public class PlayerScore : MonoBehaviour
             }
         }
 
-        score = segmentCount * segmentPoints;
+        score = segmentCount * segmentPoints + cherriesEaten * cherryPoints + plumsEaten * plumPoints;
+
+        if (appleEaten)
+            score += applePoints;
 
         m_screenGUI.updateScoreLabel(this.score);
 	}
 
-    void addScore(int value)
+    public void cherryEaten()
     {
-        score += value;
-        getGUIScore();
+        cherriesEaten++;
+    }
+
+    public void plumEaten()
+    {
+        plumsEaten++;
+    }
+
+    public void appleEatenTrigger()
+    {
+        appleEaten = true;
     }
 
     public string getGUIScore()

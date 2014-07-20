@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Mole : MonoBehaviour 
 {
-    public float speedFactor = 2f;
+    public float speedFactor;
     public float knockbackForce;
 
     private bool activated;
