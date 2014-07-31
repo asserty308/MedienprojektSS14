@@ -1,16 +1,15 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerScore : MonoBehaviour 
 {
-    public const int segmentPoints = 25;
     public const int cherryPoints = 10;
     public const int plumPoints = 5;
     public const int applePoints = 50;
     public Head head; //needed to set segmentCount
 	public int score;
     
-    private int segmentCount, cherriesEaten, plumsEaten;
+    private int cherriesEaten, plumsEaten, deaths, multiplier;
     private bool appleEaten;
     private Segment successor;
     private ScreenGUI m_screenGUI;
@@ -22,21 +21,7 @@ public class PlayerScore : MonoBehaviour
 
         m_screenGUI = GetComponent<ScreenGUI>();
     	
-        segmentCount = 1;
-
-        if (head.successor != null)
-        {
-            successor = head.successor;
-            segmentCount++;
-
-            while (successor.successor != null)
-            {
-                successor = successor.successor;
-                segmentCount++;
-            }
-        }
-
-        score = segmentCount * segmentPoints;
+        score = 0;
         cherriesEaten = 0;
         plumsEaten = 0;
         appleEaten = false;
@@ -47,22 +32,10 @@ public class PlayerScore : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        segmentCount = 1; //1 for the head
-
-        if (head.successor != null)
-        {
-            successor = head.successor;
-            segmentCount++;
-
-            while (successor.successor != null)
-            {
-                successor = successor.successor;
-                segmentCount++;
-            }
-        }
-
-        score = segmentCount * segmentPoints + cherriesEaten * cherryPoints + plumsEaten * plumPoints;
-
+        score = cherriesEaten * cherryPoints + plumsEaten * plumPoints;
+		
+		multiplier = head.getNumberOfSegments() + 1;
+		
         if (appleEaten)
             score += applePoints;
 
@@ -82,6 +55,18 @@ public class PlayerScore : MonoBehaviour
     public void appleEatenTrigger()
     {
         appleEaten = true;
+    }
+    
+    public void addDeath(){
+    	deaths++;
+    }
+    
+    public int getMuliplier(){
+    	return multiplier;
+    }
+    
+    public int getDeaths(){
+    	return deaths;
     }
 
     public string getGUIScore()

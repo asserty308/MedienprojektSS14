@@ -14,8 +14,14 @@ public class ShowScore : MonoBehaviour {
 		PlayerScore scoreKeeper = gameController.GetComponent<PlayerScore>();
 		
 		if(scoreKeeper){
-			playerScore = scoreKeeper.score;
-			this.guiText.text = "Your score: " + playerScore;
+			int fruitscore = scoreKeeper.score;
+			int mult = scoreKeeper.getMuliplier();
+			int deaths = scoreKeeper.getDeaths();
+			playerScore = fruitscore * Mathf.Abs(mult - deaths);
+			
+			this.guiText.text = "Multiplier: " + mult + " - " + deaths + " = " + "|" + (mult-deaths) + "| = " + Mathf.Abs(mult - deaths)+"\n" +
+				"Your Score: " + fruitscore + " X " + Mathf.Abs(mult - deaths) + " = " + playerScore;
+			
 		}else{
 			Debug.Log("Score could not be found!");
 		}

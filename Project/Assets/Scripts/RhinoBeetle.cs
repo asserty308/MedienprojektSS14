@@ -111,6 +111,7 @@ public class RhinoBeetle : MonoBehaviour {
 			}
 			
 			if (other.tag == "Segment"){
+				
 				Segment segment = other.GetComponent<Segment>();
 			
 				while (segment.successor != null)
