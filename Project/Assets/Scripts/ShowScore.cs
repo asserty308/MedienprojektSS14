@@ -17,10 +17,11 @@ public class ShowScore : MonoBehaviour {
 			int fruitscore = scoreKeeper.score;
 			int mult = scoreKeeper.getMuliplier();
 			int deaths = scoreKeeper.getDeaths();
-			playerScore = fruitscore * Mathf.Abs(mult - deaths);
+			int finalmult = mult - deaths < 0  ? 0 : (mult - deaths);
+			playerScore = fruitscore * finalmult;
 			
-			this.guiText.text = "Multiplier: " + mult + " - " + deaths + " = " + "|" + (mult-deaths) + "| = " + Mathf.Abs(mult - deaths)+"\n" +
-				"Your Score: " + fruitscore + " X " + Mathf.Abs(mult - deaths) + " = " + playerScore;
+			this.guiText.text = "Multiplier: " + mult + " - " + deaths + " = " + (mult-deaths) + " = " + finalmult +"\n" +
+				"Your Score: " + fruitscore + " X " + finalmult + " = " + playerScore;
 			
 		}else{
 			Debug.Log("Score could not be found!");

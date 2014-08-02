@@ -8,7 +8,6 @@ public class Checkpoint : MonoBehaviour {
 	public GameObject respawnable;
 	public LayerMask mask;
 	public List<scrollscript> backgroundLevels;
-	public PlayerScore scoreController;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +19,8 @@ public class Checkpoint : MonoBehaviour {
 	
 	}
 	
-	public void respawn(){
-		scoreController.addDeath();
+	public virtual void respawn(){
+		playerScore.addDeath();
 	
 		GameObject newPlayer = (GameObject)Instantiate(respawnable);
 		newPlayer.transform.position = this.transform.position;

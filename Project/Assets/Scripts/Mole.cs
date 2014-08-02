@@ -5,21 +5,22 @@ public class Mole : MonoBehaviour
 {
     public float speedFactor;
     public float knockbackForce;
+	public Vector3 startPosition;
 
     private bool activated;
     private Vector3 moveVector;
-    private float startPositionX;
+    
 
 	void Start () 
     {
         activated = false;
         moveVector = new Vector3(1f, moleMoveFunction(), 0f);
-        startPositionX = transform.position.x;
+        startPosition = transform.position;
 	}
 	
 	void Update () 
     {
-	    if (activated)
+	    if (activated && transform.position.x < 1200f)
         {
             transform.position += Time.deltaTime * moveVector;
             moveVector = new Vector3(speedFactor, moleMoveFunction(), 0f);
@@ -28,14 +29,17 @@ public class Mole : MonoBehaviour
 
     float moleMoveFunction()
     {
-        float dx = transform.position.x - startPositionX;
+        float dx = transform.position.x - startPosition.x;
         return Mathf.Sin(dx);
     }
 
     public void setActivated(bool state)
     {
-        activated = state;
-    }
+		if(!activated){
+			this.transform.position += new Vector3(0f, 7f, 0f);
+		}
+    	activated = state;
+	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -51,7 +55,9 @@ public class Mole : MonoBehaviour
                 Checkpoint currentCheckpoint = currentCheckpointObject.GetComponent<Checkpoint>();
 
                 Destroy(head.gameObject);
+                this.transform.position = startPosition;
                 currentCheckpoint.respawn();
+                
                 return;
             }
 

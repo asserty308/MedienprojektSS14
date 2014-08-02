@@ -7,7 +7,7 @@ public class MoleActivator : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Head" || collider.tag == "Segment")
+        if (collider.tag == "Head")
         {
             mole.setActivated(true);
         }
