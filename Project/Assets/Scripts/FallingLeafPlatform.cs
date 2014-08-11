@@ -8,44 +8,57 @@ public class FallingLeafPlatform : MonoBehaviour {
 	public List<Transform> bezierPoints;
 	private Vector2 lastPosition;
 	private Vector2[] bezierPointsCoordiates;
-	private Vector2[] coordinateCopy; 
+	private Vector2[] coordinateCopy;
+    private bool m_active;
 	
 	
 	// Use this for initialization
-	void Start () {
-		t = 0;
-		lastPosition = transform.position;
-		
-		bezierPointsCoordiates = new Vector2[bezierPoints.Count];
-		
-		for(int i = 0; i < bezierPoints.Count; i++){
-			bezierPointsCoordiates[i] = bezierPoints[i].position;
-		}
-		
-		coordinateCopy = new Vector2[bezierPointsCoordiates.Length]; 
+	void Start () 
+    {
+        m_active = false;
 	}
+
+    public void activate()
+    {
+        t = 0;
+        lastPosition = transform.position;
+
+        bezierPointsCoordiates = new Vector2[bezierPoints.Count];
+
+        for (int i = 0; i < bezierPoints.Count; i++)
+        {
+            bezierPointsCoordiates[i] = bezierPoints[i].position;
+        }
+
+        coordinateCopy = new Vector2[bezierPointsCoordiates.Length];
+
+        m_active = true;
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	    Vector2 position = DeCasteljau(t);
-	    transform.position = position;
-		
-		Vector2 delta = (position - lastPosition); 
-		
-		rigidbody2D.velocity += delta;
-		
-		t += Time.deltaTime * 0.0625f;
-		
-		if(transform.position.y < bezierPointsCoordiates[bezierPointsCoordiates.Length-1].y){
-			this.transform.DetachChildren();
-			this.tag = "Untagged";
-			transform.position = bezierPointsCoordiates[0];
-			this.transform.eulerAngles = Vector3.zero;
-			this.rigidbody2D.angularVelocity = 0f;
-			t = 0.0625f;
-		}
-		
+	void Update () 
+    {
+        if (m_active)
+        {
+            Vector2 position = DeCasteljau(t);
+            transform.position = position;
+
+            Vector2 delta = (position - lastPosition);
+
+            rigidbody2D.velocity += delta;
+
+            t += Time.deltaTime * 0.0625f;
+
+            if (transform.position.y < bezierPointsCoordiates[bezierPointsCoordiates.Length - 1].y)
+            {
+                this.transform.DetachChildren();
+                this.tag = "Untagged";
+                transform.position = bezierPointsCoordiates[0];
+                this.transform.eulerAngles = Vector3.zero;
+                this.rigidbody2D.angularVelocity = 0f;
+                t = 0.0625f;
+            }
+        }
 	}
 
 
