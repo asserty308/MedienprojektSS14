@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68c585f0f78974cabb5b2f2ff6af51a9
+guid: 97ea013e062a641eca13c09368f77cb7
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -21,7 +21,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 1
@@ -45,50 +45,14 @@ TextureImporter:
     compressionQuality: 50
   spriteSheet:
     sprites:
-    - name: Sprites-L-1_0
+    - name: Sprites-Stacheln_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 838
-        width: 120
-        height: 117
+        x: 563
+        y: 376
+        width: 332
+        height: 120
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Sprites-L-1_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 530
-        width: 280
-        height: 270
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Sprites-L-1_2
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 700
-        width: 276
-        height: 83
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Sprites-L-1_3
-      rect:
-        serializedVersion: 2
-        x: 1079
-        y: 709
-        width: 140
-        height: 65
-      alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: Sprites-L-1_4
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 97
-        width: 521
-        height: 350
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
