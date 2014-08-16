@@ -10,11 +10,15 @@ public class Head : MonoBehaviour {
 	public GameObject newSeg;
 	public bool facingRight;
 	public Vector3 lastPosition;
+	public bool controlLock;
+	public string nextLevel;
+
 	
 	// Use this for initialization
 	void Start () {
 		dir = transform.right;
 		facingRight = true;
+		controlLock = false;
 	}
 	
     void Update()
@@ -34,12 +38,16 @@ public class Head : MonoBehaviour {
 		
 		lastPosition = transform.position;
 		
+		
+		
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		
-		rigidbody2D.AddForce(dir * Input.GetAxis("Horizontal") * 20.0f);
+		if(!controlLock){
+			rigidbody2D.AddForce(dir * Input.GetAxis("Horizontal") * 20.0f);
+		}
 		
 		transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
 	}
@@ -103,5 +111,28 @@ public class Head : MonoBehaviour {
 			seg = seg.successor;
 		}
 	}
+	
+	public void destroyAllSegments(){
+		Segment seg = successor;
+		Segment segToDestroy = successor;
+		
+		if(!seg){
+			return;
+		}
+		
+		
+		while(seg){
+			seg = seg.successor;
+			Destroy(segToDestroy.gameObject);
+			segToDestroy = seg;	
+		}
+	}
+	
+	public void loadNewLevel(){
+		Application.LoadLevel(nextLevel);
+	}
+	
 
 }
+
+	

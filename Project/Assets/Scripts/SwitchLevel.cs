@@ -17,7 +17,23 @@ public class SwitchLevel : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.tag == "Head"){
-			Application.LoadLevel(level);
+			Destroy(this.gameObject);
+			
+			other.rigidbody2D.velocity = Vector3.zero;
+			other.rigidbody2D.gravityScale = 0.0f;
+			
+			Head head = other.GetComponent<Head>();
+			head.controlLock = true;
+			head.destroyAllSegments();
+			
+			Animator anim = other.gameObject.GetComponent<Animator>();
+			anim.SetBool("ReachedEndOfLevel",true);
+			
+			Camera.main.orthographicSize = 3.0f;
+			smooth2Dfollow sm2Df = Camera.main.GetComponent<smooth2Dfollow>();
+			sm2Df.targetPosOnScreenX = 0.5f;
+			sm2Df.targetPosOnScreenY = 0.5f;
+			
 		}
 	}
 }
