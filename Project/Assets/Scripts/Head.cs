@@ -132,6 +132,12 @@ public class Head : MonoBehaviour {
 		Application.LoadLevel(nextLevel);
 	}
 	
+	public void fadeScreen(){
+		GameObject fader = GameObject.Find("ScreenFader");
+		ScreenFader fadingScript = fader.GetComponent<ScreenFader>();
+		fadingScript.Fade();
+	}
+	
 
 }
 
