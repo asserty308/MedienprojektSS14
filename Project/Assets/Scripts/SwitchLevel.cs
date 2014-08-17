@@ -15,8 +15,14 @@ public class SwitchLevel : MonoBehaviour {
 	
 	}
 	
-	void OnTriggerEnter2D(Collider2D other){
-		if(other.tag == "Head"){
+	void OnTriggerEnter2D(Collider2D other)
+    {
+		if(other.tag == "Head")
+        {
+            GameObject gameController = GameObject.Find("GameController");
+            PlayerScore score = gameController.GetComponent<PlayerScore>();
+            int tmpMultiplier = score.getMuliplier();
+
 			Destroy(this.gameObject);
 			
 			other.rigidbody2D.velocity = Vector3.zero;
@@ -27,13 +33,14 @@ public class SwitchLevel : MonoBehaviour {
 			head.destroyAllSegments();
 			
 			Animator anim = other.gameObject.GetComponent<Animator>();
-			anim.SetBool("ReachedEndOfLevel",true);
+			anim.SetBool("ReachedEndOfLevel", true);
 			
 			Camera.main.orthographicSize = 3.0f;
 			smooth2Dfollow sm2Df = Camera.main.GetComponent<smooth2Dfollow>();
 			sm2Df.targetPosOnScreenX = 0.5f;
 			sm2Df.targetPosOnScreenY = 0.5f;
-			
+
+            score.setMultiplier(tmpMultiplier);
 		}
 	}
 }

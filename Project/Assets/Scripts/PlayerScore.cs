@@ -10,7 +10,7 @@ public class PlayerScore : MonoBehaviour
 	public int score;
     
     private int cherriesEaten, plumsEaten, deaths, multiplier;
-    private bool appleEaten;
+    private bool appleEaten, mulSet;
     private Segment successor;
     private ScreenGUI m_screenGUI;
 
@@ -25,6 +25,7 @@ public class PlayerScore : MonoBehaviour
         cherriesEaten = 0;
         plumsEaten = 0;
         appleEaten = false;
+        mulSet = false;
 
         m_screenGUI.updateScoreLabel(this.score);
 	}
@@ -34,7 +35,10 @@ public class PlayerScore : MonoBehaviour
     {
         score = cherriesEaten * cherryPoints + plumsEaten * plumPoints;
 		
-		multiplier = head.getNumberOfSegments() + 1;
+        if (!mulSet)
+        {
+            multiplier = head.getNumberOfSegments() + 1;
+        }
 		
         if (appleEaten)
             score += applePoints;
@@ -74,4 +78,9 @@ public class PlayerScore : MonoBehaviour
         return "Score: " + score;
     }
     
+    public void setMultiplier(int newMul)
+    {
+        this.multiplier = newMul;
+        this.mulSet = true;
+    }
 }
