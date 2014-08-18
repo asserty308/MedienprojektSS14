@@ -9,9 +9,12 @@ public class Checkpoint : MonoBehaviour {
 	public LayerMask mask;
 	public List<scrollscript> backgroundLevels;
 
+    private Animator m_anim;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
+        this.m_anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -47,4 +50,12 @@ public class Checkpoint : MonoBehaviour {
 
         playerScore.head = newHead;
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Head" || other.tag == "Segment")
+        {
+            this.m_anim.SetBool("activated", true);
+        }
+    }
 }
