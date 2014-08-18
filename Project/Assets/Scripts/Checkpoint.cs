@@ -9,10 +9,10 @@ public class Checkpoint : MonoBehaviour {
 	public LayerMask mask;
 	public List<scrollscript> backgroundLevels;
 
-    private Animator m_anim;
+    protected Animator m_anim;
 
 	// Use this for initialization
-	void Start () 
+	protected void Start () 
     {
         this.m_anim = GetComponent<Animator>();
 	}

@@ -6,7 +6,7 @@ public class MoleCheckpoint : Checkpoint {
 	public Mole mole;
 	// Use this for initialization
 	void Start () {
-		
+		base.Start();
 	}
 	
 	// Update is called once per frame
