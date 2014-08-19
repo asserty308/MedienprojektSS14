@@ -65,6 +65,12 @@ public class Segment : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(Vector3.zero); //Lock rotation
+
+        //destroy object if segment has no predecessor (solves leaf-flower-bug)
+        if (predecessor == null)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D coll)
