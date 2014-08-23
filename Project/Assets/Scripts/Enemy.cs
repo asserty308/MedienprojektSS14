@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
             Destroy(segment.gameObject);
             
             //Little Knockback on impact
-            Vector3 knockbackDirection = head.facingRight ? -(other.transform.right) : other.transform.right; 
+            Vector3 knockbackDirection = head.currentFacingRight ? -(other.transform.right) : other.transform.right; 
 			other.gameObject.rigidbody2D.velocity = knockbackDirection * knockbackForce + new Vector3(0f, 10f, 0);
 			//
 
@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
             
 			//Little Knockback on impact
 			Head head = segment.head;
-			Vector3 knockbackDirection = head.facingRight ? other.transform.right : -other.transform.right; 
+			Vector3 knockbackDirection = head.currentFacingRight ? other.transform.right : -other.transform.right; 
 			head.gameObject.rigidbody2D.velocity = knockbackDirection * knockbackForce + new Vector3(0f, 10f, 0);
 			//
         }

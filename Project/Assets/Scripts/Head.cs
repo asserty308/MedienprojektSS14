@@ -8,7 +8,7 @@ public class Head : MonoBehaviour {
 	public LayerMask mask;
 	public Vector2 dir;
 	public GameObject newSeg;
-	public bool facingRight;
+	public bool currentFacingRight, lastFacingRight;
 	public Vector3 lastPosition;
 	public bool controlLock;
 	public string nextLevel;
@@ -17,29 +17,37 @@ public class Head : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		dir = transform.right;
-		facingRight = true;
+		currentFacingRight = true;
 		controlLock = false;
 	}
 	
     void Update()
     {
+        lastFacingRight = currentFacingRight;
+
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rigidbody2D.AddForce(transform.up * 500f);
         }
         
-        if(transform.position.x > lastPosition.x){
-        	facingRight = true;
-		}else if(transform.position.x < lastPosition.x){
-			facingRight = false;
+        if(transform.position.x >= lastPosition.x) 
+        {
+        	currentFacingRight = true;
 		}
+        else if(transform.position.x < lastPosition.x)
+        {
+			currentFacingRight = false;
+		}
+
+        //only update when direction changes
+        if (lastFacingRight != currentFacingRight)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z); //flip game object
+        }
 		
 		grounded = Physics2D.OverlapCircle(transform.position, 0.45f, mask);
 		
 		lastPosition = transform.position;
-		
-		
-		
 	}
 
 	// Update is called once per frame
