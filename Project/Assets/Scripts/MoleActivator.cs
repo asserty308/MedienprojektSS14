@@ -12,7 +12,11 @@ public class MoleActivator : MonoBehaviour
         {
             m_camera.gameObject.audio.Stop();
             m_mole.setActivated(true);
-            audio.Play();
+
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
         }
     }
 }
