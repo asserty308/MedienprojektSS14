@@ -47,7 +47,10 @@ public class ScreenGUI : MonoBehaviour
 
     public void updateScoreLabel(int score)
     {
-        m_scoreLabel = "Score: " + score;
+        if (m_playerScore != null)
+        {
+            m_scoreLabel = "Score: " + score + " (x" + Mathf.Max(0, 6 - m_playerScore.getDeaths()) + ")";
+        }
     }
 
     public void setLabelString(string label)
