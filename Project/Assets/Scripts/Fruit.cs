@@ -17,21 +17,19 @@ public class Fruit : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
-	
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Head")
         {
+            m_eaten = true;
 			audio.Play();
 			gameObject.renderer.enabled = false;
-			m_eaten = true;
+            gameObject.collider2D.enabled = false;
+
 			Head head = other.gameObject.GetComponent<Head>();
-			
-			if(head.getNumberOfSegments() < 10){
-				head.growNewSegment();
-			}
+			head.growNewSegment();
         }
     }
 }

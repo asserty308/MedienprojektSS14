@@ -49,7 +49,7 @@ public class ScreenGUI : MonoBehaviour
     {
         if (m_playerScore != null)
         {
-            m_scoreLabel = "Score: " + score + " (x" + Mathf.Max(0, 6 - m_playerScore.getDeaths()) + ")";
+            m_scoreLabel = "Score: " + score + " (x" + Mathf.Max(0, m_playerScore.getMuliplier() - m_playerScore.getDeaths()) + ")";
         }
     }
 

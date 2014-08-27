@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class knife : MonoBehaviour {
+public class Spider : MonoBehaviour {
 	
 	public Vector3 directionVector;
 	public float t, interval;
