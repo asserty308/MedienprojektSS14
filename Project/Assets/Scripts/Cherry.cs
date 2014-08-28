@@ -22,7 +22,7 @@ public class Cherry : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Head")
+		if (other.tag == "Head" && !m_eaten)
 		{
 			audio.Play();
 			scoreKeeper.cherryEaten();
