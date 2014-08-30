@@ -7,6 +7,7 @@ public class ShowScore : MonoBehaviour {
 	public ScoreTable st;
 	private float playerScore;
 	private bool savingDone;
+	
 
 	// Use this for initialization
 	void Start () {

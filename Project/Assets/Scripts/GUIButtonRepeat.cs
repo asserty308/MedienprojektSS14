@@ -5,6 +5,7 @@ public class GUIButtonRepeat : MonoBehaviour
 {
     public string m_text;
     public Vector2 m_buttonOffset;
+	public Vector2 m_dimensions;
 	
 	private Rect frame;
 	private GUIStyle style;
@@ -22,7 +23,7 @@ public class GUIButtonRepeat : MonoBehaviour
 		style.fontSize = (int)(0.05 * Mathf.Min(Screen.width, Screen.height));
 		
 		
-		frame = new Rect (Screen.width/2 - m_buttonOffset.x, Screen.height - pos.y, 100f, 25f);
+		frame = new Rect (Screen.width/2 - m_buttonOffset.x, Screen.height - pos.y, m_dimensions.x, m_dimensions.y);
 		
 	}
 	
