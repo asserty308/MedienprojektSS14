@@ -36,7 +36,8 @@ public class Mole : MonoBehaviour
     public void setActivated(bool state)
     {
 		if(!activated){
-			this.transform.position += new Vector3(0f, 7f, 0f);
+			this.transform.position += new Vector3(0f, 10f, 0f);
+			this.GetComponent<Animator>().SetBool("activated", true);
 		}
     	activated = state;
 	}

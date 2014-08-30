@@ -17,6 +17,7 @@ public class MoleCheckpoint : Checkpoint {
 	public override void respawn(){
 		base.respawn();
 		mole.gameObject.transform.position = mole.startPosition;
+		mole.gameObject.GetComponent<Animator>().SetBool("activated", false);
 		mole.setActivated(false);
 	}
 }
