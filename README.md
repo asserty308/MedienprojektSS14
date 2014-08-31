@@ -6,7 +6,7 @@ BESCHREIBUNG:
 
 STEUERUNG:
 
-Richtung		=	Pfeil-Tasten
+Laufen Richtung	=	Pfeil-Tasten
 Springen		=	Space-Taste
 Zusammenziehen	=	Shift-Taste
 
